@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" id="iframeHtmlRoot" class="iframe-page-root">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Iframe Page</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #111;
+        background: #f8fbff;
+      }
+      body.iframe-level-2 {
+        background: #f4fbf8;
+      }
+      .level-tag {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #fff;
+        background: #1d4ed8;
+      }
+      body.iframe-level-2 .level-tag {
+        background: #047857;
+      }
+      .page-box {
+        border: 2px solid #1d4ed8;
+        border-radius: 10px;
+        background: #fff;
+        padding: 18px;
+        max-width: 640px;
+      }
+      body.iframe-level-2 .page-box {
+        border-color: #047857;
+      }
+      .page-title {
+        margin: 0 0 6px;
+        font-size: 1.25rem;
+      }
+      .page-hint {
+        margin: 0 0 14px;
+        color: #475569;
+        font-size: 0.92rem;
+      }
+      .buttons-row {
+        margin-bottom: 14px;
+      }
+      .btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        background: #1d4ed8;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+      body.iframe-level-2 .btn {
+        background: #047857;
+      }
+      .btn-secondary {
+        background: #64748b;
+      }
+      .status-text {
+        margin: 0 0 14px;
+        min-height: 1.2em;
+        color: #0f172a;
+        font-size: 0.95rem;
+      }
+      .simple-form {
+        padding: 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        background: #f8fafc;
+      }
+      .form-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .form-row label {
+        min-width: 70px;
+        font-weight: 600;
+      }
+      .form-row input {
+        flex: 1;
+        padding: 6px 8px;
+        border: 1px solid #94a3b8;
+        border-radius: 4px;
+      }
+      .nested-block {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px dashed #1d4ed8;
+      }
+      body.iframe-level-2 .nested-block {
+        display: none;
+      }
+      .nested-label {
+        margin: 0 0 10px;
+        font-weight: 600;
+        color: #334155;
+        font-size: 0.9rem;
+      }
+      .nested-iframe {
+        width: 100%;
+        height: 360px;
+        border: 2px solid #047857;
+        border-radius: 8px;
+        background: #fff;
+        display: block;
+      }
+    </style>
+  </head>
+  <body id="iframeL1PageBody" class="iframe-page-body">
+    <div id="iframeL1PageBox" class="page-box">
+      <span id="iframeL1LevelTag" class="level-tag">Iframe — Level 1</span>
+      <h1 id="iframeL1PageTitle" class="page-title">Simple Page</h1>
+      <p id="iframeL1PageHint" class="page-hint">
+        Minimal DOM inside the iframe. Level 2 is nested below.
+      </p>
+
+      <div id="iframeL1ButtonsRow" class="buttons-row">
+        <button id="iframeL1BtnOne" class="btn" type="button">Button One</button>
+        <button id="iframeL1BtnTwo" class="btn" type="button">Button Two</button>
+        <button id="iframeL1BtnClear" class="btn btn-secondary" type="button">Clear</button>
+      </div>
+      <p id="iframeL1Status" class="status-text"></p>
+
+      <form id="iframeL1SimpleForm" class="simple-form" action="#">
+        <div id="iframeL1NameRow" class="form-row">
+          <label id="iframeL1NameLabel" for="iframeL1Name">Name</label>
+          <input type="text" id="iframeL1Name" class="form-input" name="name" placeholder="Name" />
+        </div>
+        <div id="iframeL1EmailRow" class="form-row">
+          <label id="iframeL1EmailLabel" for="iframeL1Email">Email</label>
+          <input type="email" id="iframeL1Email" class="form-input" name="email" placeholder="email@example.com" />
+        </div>
+        <div id="iframeL1FormActions" class="form-row">
+          <button type="submit" id="iframeL1SubmitBtn" class="btn">Submit</button>
+          <button type="reset" id="iframeL1ResetBtn" class="btn btn-secondary">Reset</button>
+        </div>
+      </form>
+
+      <div id="iframeL1NestedBlock" class="nested-block">
+        <p id="iframeL1NestedLabel" class="nested-label">↓ Nested inside Level 1:</p>
+        <iframe
+          id="iframeL1NestedFrame"
+          class="nested-iframe"
+          name="iframeL1NestedFrame"
+          title="Iframe Level 2"
+          src="iframe-page.html?nest=2"
+        ></iframe>
+      </div>
+    </div>
+
+    <script id="iframePageScript" class="inline-script">
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const nestLevel = parseInt(params.get('nest') || '1', 10);
+        const prefix = nestLevel === 1 ? 'iframeL1' : 'iframeL2';
+
+        function renameId(oldId, newId) {
+          const el = document.getElementById(oldId);
+          if (el && oldId !== newId) {
+            el.id = newId;
+          }
+        }
+
+        if (nestLevel >= 2) {
+          const l1Ids = [
+            'iframeL1PageBody',
+            'iframeL1PageBox',
+            'iframeL1LevelTag',
+            'iframeL1PageTitle',
+            'iframeL1PageHint',
+            'iframeL1ButtonsRow',
+            'iframeL1BtnOne',
+            'iframeL1BtnTwo',
+            'iframeL1BtnClear',
+            'iframeL1Status',
+            'iframeL1SimpleForm',
+            'iframeL1NameRow',
+            'iframeL1NameLabel',
+            'iframeL1Name',
+            'iframeL1EmailRow',
+            'iframeL1EmailLabel',
+            'iframeL1Email',
+            'iframeL1FormActions',
+            'iframeL1SubmitBtn',
+            'iframeL1ResetBtn',
+            'iframeL1NestedBlock',
+            'iframeL1NestedLabel',
+            'iframeL1NestedFrame'
+          ];
+          l1Ids.forEach(function (id) {
+            if (id.indexOf('iframeL1') === 0) {
+              renameId(id, id.replace(/^iframeL1/, 'iframeL2'));
+            }
+          });
+          document.querySelectorAll('label[for^="iframeL1"]').forEach(function (label) {
+            const f = label.getAttribute('for');
+            if (f) {
+              label.setAttribute('for', f.replace(/^iframeL1/, 'iframeL2'));
+            }
+          });
+        }
+
+        document.body.classList.add('iframe-level-' + nestLevel);
+        document.body.setAttribute('data-nest-level', String(nestLevel));
+
+        const levelTag = document.getElementById(prefix + 'LevelTag');
+        const pageTitle = document.getElementById(prefix + 'PageTitle');
+        const pageHint = document.getElementById(prefix + 'PageHint');
+        const nestedBlock = document.getElementById(prefix + 'NestedBlock');
+        const status = document.getElementById(prefix + 'Status');
+
+        if (nestLevel >= 2) {
+          if (levelTag) levelTag.textContent = 'Iframe — Level 2';
+          if (pageTitle) pageTitle.textContent = 'Simple Page (Deepest)';
+          if (pageHint) pageHint.textContent = 'This is Level 2. Nesting stops here.';
+          if (nestedBlock) nestedBlock.hidden = true;
+        } else {
+          if (levelTag) levelTag.textContent = 'Iframe — Level 1';
+          if (pageTitle) pageTitle.textContent = 'Simple Page';
+          if (pageHint) {
+            pageHint.textContent =
+              'Minimal DOM inside the iframe. Level 2 is nested below.';
+          }
+        }
+
+        function setStatus(message) {
+          if (status) status.textContent = message;
+        }
+
+        const btnOne = document.getElementById(prefix + 'BtnOne');
+        const btnTwo = document.getElementById(prefix + 'BtnTwo');
+        const btnClear = document.getElementById(prefix + 'BtnClear');
+        const form = document.getElementById(prefix + 'SimpleForm');
+
+        if (btnOne) {
+          btnOne.addEventListener('click', function () {
+            setStatus('Button One clicked (Iframe Level ' + nestLevel + ')');
+          });
+        }
+
+        if (btnTwo) {
+          btnTwo.addEventListener('click', function () {
+            setStatus('Button Two clicked (Iframe Level ' + nestLevel + ')');
+          });
+        }
+
+        if (btnClear) {
+          btnClear.addEventListener('click', function () {
+            setStatus('');
+          });
+        }
+
+        if (form) {
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById(prefix + 'Name');
+            const email = document.getElementById(prefix + 'Email');
+            setStatus(
+              'Form submitted (Level ' + nestLevel + '): ' +
+              (name ? name.value : '') +
+              ' / ' +
+              (email ? email.value : '')
+            );
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

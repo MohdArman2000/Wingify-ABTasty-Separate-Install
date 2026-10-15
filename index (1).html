@@ -1,0 +1,1768 @@
+<html lang="en" id="htmlRoot" class="page-root">
+  <head>
+    <title>My Website</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+      }
+      body {
+        margin: 0;
+        background: #fff4f4;
+      }
+      #contact_us,
+      #about,
+      #suggestions {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        border: 2px outset black;
+        background-color: white;
+        text-align: center;
+        color: black;
+        text-decoration: none;
+        border-radius: 100px;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 20px;
+      }
+      .wrapper {
+        position: absolute;
+        top: 100px;
+        left: 450px;
+        background: #fff;
+        max-width: 365px;
+        border-radius: 15px;
+        text-align: center;
+        padding: 25px 25px 30px 25px;
+        box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+      }
+      .wrapper.hide {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+      }
+      .wrapper img {
+        max-width: 150px;
+      }
+      .wrapper .content {
+        margin-top: 20px;
+      }
+      .wrapper header {
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .level-banner {
+        display: inline-block;
+        margin: 0 auto 16px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .level-banner-main {
+        background: #eef2ff;
+        color: #3730a3;
+      }
+      .hierarchy-guide {
+        margin: 0 auto 20px;
+        max-width: 720px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #334155;
+        text-align: left;
+      }
+      .embedded-features-wrapper {
+        margin: 40px auto;
+        width: 95%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .embedded-feature-section {
+        border: 1px solid #d0d0d0;
+        border-radius: 12px;
+        padding: 24px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      .embedded-feature-title {
+        text-align: center;
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+      }
+      .embedded-feature-desc {
+        text-align: center;
+        margin: 0 0 16px;
+        color: #444;
+        line-height: 1.5;
+      }
+      .iframe-section,
+      .shadow-section {
+        margin: 0;
+        width: 100%;
+      }
+      .iframe-frame {
+        width: 100%;
+        height: 520px;
+        border: 2px solid #1d4ed8;
+        border-radius: 8px;
+        background: #fafafa;
+        display: block;
+      }
+      .shadow-host {
+        display: block;
+        min-height: 160px;
+      }
+      .site-header {
+        text-align: center;
+      }
+      .dynamic-section {
+        margin: 40px auto;
+        width: 95%;
+        max-width: 1100px;
+      }
+      .dynamic-lab-intro {
+        text-align: center;
+        margin: 0 0 18px;
+        color: #444;
+        line-height: 1.5;
+      }
+      .dynamic-lab-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+        padding: 12px 14px;
+        border: 1px solid #c7d2fe;
+        border-radius: 8px;
+        background: #eef2ff;
+      }
+      .dynamic-lab-status {
+        margin: 0;
+        color: #312e81;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .dynamic-lab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .dynamic-lab-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        background: #f8fafc;
+        text-align: left;
+      }
+      .dynamic-lab-card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #0f172a;
+      }
+      .dynamic-lab-hint {
+        margin: 0;
+        color: #475569;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+      .dynamic-lab-assert {
+        margin: 0;
+        padding: 8px 10px;
+        border-radius: 6px;
+        background: #fff;
+        border: 1px dashed #94a3b8;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.78rem;
+        color: #334155;
+        white-space: pre-wrap;
+      }
+      .dynamic-lab-triggers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .dynamic-lab-mount {
+        min-height: 44px;
+        padding: 10px;
+        border: 1px dashed #93c5fd;
+        border-radius: 8px;
+        background: #fff;
+      }
+      .dynamic-lab-mount:empty::before {
+        content: attr(data-empty-label);
+        color: #94a3b8;
+        font-size: 0.85rem;
+      }
+      .dynamic-btn {
+        padding: 8px 14px;
+        border: none;
+        border-radius: 6px;
+        background: #1d4ed8;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.92rem;
+      }
+      .dynamic-btn-secondary {
+        background: #64748b;
+      }
+      .dynamic-btn-danger {
+        background: #b91c1c;
+      }
+      .dynamic-btn-created {
+        background: #0f766e;
+      }
+      .dynamic-popup-form,
+      .dynamic-dropdown,
+      .dynamic-select-wrap,
+      .dynamic-list,
+      .dynamic-delayed-box,
+      .dynamic-condition-box,
+      .dynamic-accordion-panel,
+      .dynamic-nested-card,
+      .dynamic-search-results,
+      .dynamic-radio-group,
+      .dynamic-success-banner {
+        margin: 0;
+        padding: 12px;
+        border: 1px solid #86efac;
+        border-radius: 8px;
+        background: #f0fdf4;
+      }
+      .dynamic-popup-form .form-row,
+      .dynamic-radio-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .dynamic-popup-form label {
+        min-width: 70px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .dynamic-popup-form input,
+      .dynamic-search-input,
+      .dynamic-condition-input,
+      .dynamic-native-select {
+        flex: 1;
+        padding: 6px 8px;
+        border: 1px solid #94a3b8;
+        border-radius: 4px;
+      }
+      .dynamic-dropdown {
+        position: relative;
+        background: #fff;
+        border-color: #93c5fd;
+      }
+      .dynamic-dropdown-menu {
+        list-style: none;
+        margin: 8px 0 0;
+        padding: 6px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        background: #fff;
+      }
+      .dynamic-dropdown-option {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 8px 10px;
+        border: none;
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+      }
+      .dynamic-dropdown-option:hover,
+      .dynamic-dropdown-option.is-selected {
+        background: #dbeafe;
+      }
+      .dynamic-list {
+        list-style: none;
+        background: #fff;
+        border-color: #93c5fd;
+      }
+      .dynamic-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+        padding: 8px 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        background: #f8fafc;
+      }
+      .dynamic-tooltip-bubble {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 6px 10px;
+        border-radius: 6px;
+        background: #0f172a;
+        color: #fff;
+        font-size: 0.85rem;
+      }
+      .dynamic-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(15, 23, 42, 0.45);
+      }
+      .dynamic-modal {
+        width: min(420px, calc(100% - 32px));
+        padding: 20px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      }
+      .dynamic-modal h3 {
+        margin: 0 0 8px;
+      }
+      .dynamic-toast {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 50;
+        min-width: 220px;
+        padding: 12px 14px;
+        border-radius: 8px;
+        background: #0f766e;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      }
+      .dynamic-context-menu {
+        position: absolute;
+        z-index: 30;
+        min-width: 160px;
+        padding: 6px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+      .dynamic-context-area {
+        min-height: 72px;
+        padding: 12px;
+        border: 1px dashed #f59e0b;
+        border-radius: 8px;
+        background: #fffbeb;
+        color: #92400e;
+        font-size: 0.9rem;
+      }
+      .dynamic-search-result,
+      .dynamic-nested-child {
+        margin-top: 8px;
+        padding: 8px 10px;
+        border: 1px solid #bbf7d0;
+        border-radius: 6px;
+        background: #fff;
+      }
+    </style>
+	  <script id="cookieScript" class="inline-script">
+  const expires = new Date();
+  expires.setDate(expires.getDate() + 7);
+
+  document.cookie = `abc=A123; expires=${expires.toUTCString()}; path=/`;
+</script>
+	 	  <script id="jqueryLib" class="external-script" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<meta http-equiv="Accept-CH" content="Sec-CH-UA, Sec-CH-UA-Platform, Sec-CH-UA-Mobile, Sec-CH-UA-Full-Version, Sec-CH-UA-Model, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List" id="acceptChMeta" class="meta-tag">
+<script id="vwoLoaderScript" class="inline-script">
+(function () {
+  const params = new URLSearchParams(window.location.search);
+
+  const accountId = params.get('id');
+  const path = params.get('path') || 'tag';
+
+  if (!accountId) {
+    console.warn('VWO account id missing in URL');
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src = `https://edge.wingify.net/${path}/${accountId}.js`;
+  script.async = true;
+
+  document.head.appendChild(script);
+})();
+</script>
+  
+	  <script id="domReadyScript" class="inline-script">
+        document.addEventListener("DOMContentLoaded", function(event) {
+            console.log("DOM content loaded");
+        });
+    </script>
+		  <script id="vwoDataScript" class="inline-script">
+        window.VWO = window.VWO || [];
+        window.VWO.data = window.VWO.data || {};
+        window.VWO.data.acquia = {
+            "drupal": {
+                "title": "Deep mediterranean quiche (VWO data)",
+                "content-type": "recipe",
+                "taxonomy": {
+                    "content_section": ["Desserts", "Main courses"],
+                    "content_keywords": ["Pastry", "Egg", "Mushrooms"],
+                    "persona": ["Experienced chef"]
+                }
+            }
+        };
+
+        console.log("VWO Data:", window.VWO.data);
+    </script>
+	  <script id="vwoVariationScript" class="inline-script">
+window.VWO = window.VWO || [];
+VWO.push(['onVariationApplied', function (data) {
+    console.log("onVariationApplied called");
+    console.log("Event Fired: ", data);
+}]);
+	  </script>
+	
+  </head>
+<body id="pageBody" class="site-body">
+  <header id="siteHeader" class="site-header">
+    <div id="levelBanner" class="level-banner level-banner-main">Main Document</div>
+    <h1 id="pageTitle" class="page-title" style="text-align: center">Registration Form</h1>
+  </header>
+
+  <main id="siteMain" class="site-main">
+	<div id="parentDiv" class="intro-block">
+  <p id="childP" class="intro-text">Hello, Let's Check it!</p>
+  <button id="childButton" class="btn btn-primary" type="button">Click me</button>
+  <a id="childLink" class="external-link" href="https://www.google.com/">Visit Google.Com</a>
+</div>
+
+    <section id="welcomeSection" class="div1 welcome-section">
+      <h2 id="WelMsg" class="welcome-heading">Welcome to the website, Registration Starts Here...</h2>
+      <p id="Welpara" class="welcome-text">
+        Let's start now, just try to fill in the details carefully and
+        correctly.<br /><br />
+        <b id="passwordNote" class="note-label">NOTE:-</b>Please enter a password that is at least 8 characters long.
+      </p>
+	<p id="p2" class="spa-label"><strong id="spaLabelStrong" class="label-strong">SPA BUTTON</strong></p>
+    <button id="spaUrlButton" class="btn btn-spa" type="button" onclick="historyPushUrl()">SPA URL</button>
+	<br id="spaBreak1" class="spacer" />
+	<br id="spaBreak2" class="spacer" />
+    </section>
+
+    <section id="registrationSection" class="form-section registration-section">
+    <form action="contact_us1.html" id="registrationForm" class="registration-form">
+      <table id="registrationTable" class="form-table">
+        <tr id="nameRow" class="form-row">
+          <td id="nameLabelCell" class="form-label">Name:</td>
+          <td id="nameInputCell" class="form-field">
+            <input type="text" id="regName" class="form-input" placeholder="Name" name="name" />
+          </td>
+        </tr>
+        <tr id="phoneRow" class="form-row">
+          <td id="phoneLabelCell" class="form-label">Phone Number:</td>
+          <td id="phoneInputCell" class="form-field">
+            <input type="tel" id="regPhone" class="form-input" placeholder="9867******" name="phone" />
+          </td>
+        </tr>
+        <tr id="emailRow" class="form-row">
+          <td id="emailLabelCell" class="form-label">Email Id:</td>
+          <td id="emailInputCell" class="form-field">
+            <input type="email" id="regEmail" class="form-input" placeholder="example1@*8" name="email" />
+          </td>
+        </tr>
+        <tr id="passwordRow" class="form-row">
+          <td id="passwordLabelCell" class="form-label">Password:</td>
+          <td id="passwordInputCell" class="form-field">
+            <input type="password" id="regPassword" class="form-input" placeholder="Password" name="password" />
+          </td>
+        </tr>
+        <tr id="genderRow" class="form-row">
+          <td id="genderLabelCell" class="form-label">Gender:</td>
+          <td id="genderInputCell" class="form-field">
+            <input type="radio" id="genderMale" class="form-radio" name="gender" value="male" />
+            <label id="genderMaleLabel" class="radio-label" for="genderMale">Male</label>
+            <input type="radio" id="genderFemale" class="form-radio" name="gender" value="female" />
+            <label id="genderFemaleLabel" class="radio-label" for="genderFemale">Female</label>
+          </td>
+        </tr>
+        <tr id="dobRow" class="form-row">
+          <td id="dobLabelCell" class="form-label">Date of Birth:</td>
+          <td id="dobInputCell" class="form-field">
+            <input type="date" id="regDob" class="form-input" name="dob" />
+          </td>
+        </tr>
+        <tr id="hobbiesRow" class="form-row">
+          <td id="hobbiesLabelCell" class="form-label">Hobbies:</td>
+          <td id="hobbiesInputCell" class="form-field">
+            <input type="checkbox" id="hobbySinging" class="form-checkbox" name="hobbies" value="singing" />
+            <label id="hobbySingingLabel" class="checkbox-label" for="hobbySinging">Singing</label>
+            <input type="checkbox" id="hobbyDancing" class="form-checkbox" name="hobbies" value="dancing" />
+            <label id="hobbyDancingLabel" class="checkbox-label" for="hobbyDancing">Dancing</label>
+            <input type="checkbox" id="hobbySports" class="form-checkbox" name="hobbies" value="playing" />
+            <label id="hobbySportsLabel" class="checkbox-label" for="hobbySports">Sports</label>
+          </td>
+        </tr>
+        <tr id="educationRow" class="form-row">
+          <td id="educationLabelCell" class="form-label">Education Qualification:</td>
+          <td id="educationInputCell" class="form-field">
+            <select id="regEducation" class="form-select" name="education">
+              <option id="eduOptionDefault" class="select-option" value="">Select Option</option>
+              <option id="eduOption12" class="select-option" value="10+2">10+2</option>
+              <option id="eduOptionGrad" class="select-option" value="graduation">Graduation</option>
+              <option id="eduOptionPostGrad" class="select-option" value="postgraduation">Postgraduation</option>
+            </select>
+          </td>
+        </tr>
+        <tr id="addressRow" class="form-row">
+          <td id="addressLabelCell" class="form-label">Address:</td>
+          <td id="addressInputCell" class="form-field">
+            <textarea id="regAddress" class="form-textarea" rows="5" cols="17" placeholder="Address" name="address"></textarea>
+          </td>
+        </tr>
+        <tr id="submitRow" class="form-row form-actions-row">
+          <td id="submitCell" class="form-actions" colspan="2">
+            <input type="submit" id="regSubmit" class="btn btn-submit" value="Submit" />
+            <input type="reset" id="regReset" class="btn btn-reset" value="Reset" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <h3 id="termsNotice" class="terms-notice">
+      By clicking submit, you agree to our terms of service and privacy policy.
+    </h3>
+    <p id="confirmNotice" class="confirm-notice">
+      After registering please check your email for a confirmation message.<br /><br />
+      Already a registered user? <a href="#" id="loginLink" class="login-link">Click here</a>
+    </p>
+    <br id="regSectionBreak" class="spacer" />
+    </section>
+
+    <section id="feedbackSection" class="form-section feedback-section">
+    <p id="p1" class="feedback-label"><strong id="feedbackLabelStrong" class="label-strong">FEEDBACK-FORM</strong></p>
+    <div id="feedbackWrapper" class="feedback-wrapper">
+      <form action="feedback.html" id="feedbackForm" class="feedback-form">
+        <label for="answer" id="feedbackQuestion" class="feedback-label-text"
+          >If you're facing any problem please write to us.We'll solve the issue
+          at the earliest.</label
+        ><br id="feedbackBreak1" class="spacer" />
+        <br id="feedbackBreak2" class="spacer" />
+        <br id="feedbackBreak3" class="spacer" />
+        <input
+          class="feedBackForm form-input"
+          id="answer"
+          name="feedback"
+          placeholder="Text"
+          size="100"
+          style="height: 100px"
+          type="text"
+          value=""
+        /><br id="feedbackBreak4" class="spacer" />
+        <br id="feedbackBreak5" class="spacer" />
+        <input type="submit" id="feedbackSubmit" class="btn btn-submit" value="Submit" />
+      </form>
+    </div>
+    <br id="feedbackSectionBreak" class="spacer" />
+    </section>
+
+    <section id="testControlsSection" class="test-controls-section">
+    <a href="javascript:void(0)" id="changeHashLink" class="hash-link" onclick="location.hash='spa/1.html'"
+      >Change hash</a
+    >
+    <p id="hashSpacer" class="empty-paragraph"></p>
+    <button id="clickonlinkDummy" class="btn btn-test" type="button">ClickElement</button>
+    <button id="testelement2" class="btn btn-test" type="button">ClickElement2</button>
+    <button id="testelement3" class="btn btn-test" type="button">ClickElement3</button>
+    <button id="testelement4" class="btn btn-test" type="button">ClickElement4</button>
+	<button id="errorclickid" class="errorclickclass btn btn-error" type="button" onclick="triggerAllErrors()">Click me to trigger multiple errors</button>
+    </section>
+
+    <nav id="siteNav" class="site-nav">
+    <p id="navLinks" class="nav-links">
+      <br id="navBreak1" class="spacer" />
+      <br id="navBreak2" class="spacer" />
+      <a href="suggestions.html" id="suggestions" class="nav-link">Suggestions</a><br id="navBreak3" class="spacer" />
+      <br id="navBreak4" class="spacer" />
+      <br id="navBreak5" class="spacer" />
+      <br id="navBreak6" class="spacer" />
+      <a href="contact_us.html" id="contact_us" class="nav-link">Contact us</a><br id="navBreak7" class="spacer" />
+      <br id="navBreak8" class="spacer" />
+      <br id="navBreak9" class="spacer" />
+      <br id="navBreak10" class="spacer" />
+      <a href="about.html" id="about" class="nav-link">About</a>
+
+      <br id="navBreak11" class="spacer" />
+      <br id="navBreak12" class="spacer" />
+      <br id="navBreak13" class="spacer" />
+    </p>
+    </nav>
+
+    <div id="navSpacer" class="section-spacer" style="height: 30px"></div>
+
+    <section id="dynamicLinkSection" class="dynamic-link-section">
+    <a id="dynamicLink" class="dynamic-link"></a>
+    <p id="generateLinkBlock" class="generate-link-block">
+      <button id="generateLinkBtn" class="btn btn-generate" type="button" onclick="myFunction()">Generate Link</button>
+      <input id="input" class="form-input link-input" />
+      <script id="generateLinkScript" class="inline-script">
+        function myFunction() {
+          document.getElementById("dynamicLink").innerHTML = "GENERATED LINK";
+          document.getElementById("dynamicLink").href =
+            document.getElementById("input").value;
+          //   location.href=document.getElementById("input").value;
+        }
+      </script>
+    </p>
+    </section>
+
+    <div id="embeddedFeaturesWrapper" class="embedded-features-wrapper">
+      <section id="shadowDomSection" class="shadow-section embedded-feature-section">
+        <h2 id="shadowDomSectionTitle" class="embedded-feature-title">Shadow DOM — 2 Levels</h2>
+        <p id="shadowDomSectionDesc" class="embedded-feature-desc">
+          Lives only on the main page (outside iframes).
+        </p>
+        <pre id="shadowHierarchyGuide" class="hierarchy-guide">Main Document
+  └─ Shadow DOM Level 1
+       └─ Shadow DOM Level 2</pre>
+        <div id="shadowDomHost" class="shadow-host" data-shadow-level="1"></div>
+      </section>
+
+      <section id="iframeSection" class="iframe-section nested-iframe-section embedded-feature-section">
+        <h2 id="iframeSectionTitle" class="embedded-feature-title">Iframe — 2 Levels</h2>
+        <p id="iframeSectionDesc" class="embedded-feature-desc">
+          Loads a simple page. That page nests a second simple iframe one level deeper.
+        </p>
+        <pre id="iframeHierarchyGuide" class="hierarchy-guide">Main Document
+  └─ Iframe Level 1 (simple page)
+       └─ Iframe Level 2 (simple page)</pre>
+        <div id="outerIframeWrapper" class="iframe-wrapper outer-iframe-wrapper">
+          <iframe
+            id="outerIframe"
+            class="iframe-frame nested-iframe"
+            name="outerIframe"
+            title="Iframe Level 1"
+            loading="lazy"
+            src="iframe-page.html?nest=1"
+          ></iframe>
+        </div>
+      </section>
+    </div>
+
+    <section id="dynamicElementsSection" class="dynamic-section embedded-feature-section">
+      <h2 id="dynamicElementsTitle" class="embedded-feature-title">Dynamic Elements Testing Lab</h2>
+      <p id="dynamicElementsDesc" class="dynamic-lab-intro">
+        All widgets below are created in the <strong>main document DOM</strong> only after you act.
+        They are not hidden in the page source. Close / hide / clear removes them from the DOM.
+      </p>
+      <pre id="dynamicHierarchyGuide" class="hierarchy-guide">Main Document
+  └─ #dynamicElementsSection
+       └─ empty mount nodes
+            └─ form / dropdown / modal / list / tooltip created on activity</pre>
+
+      <div id="dynamicLabToolbar" class="dynamic-lab-toolbar">
+        <p id="dynamicLabStatus" class="dynamic-lab-status" aria-live="polite">No dynamic elements in the DOM yet.</p>
+        <button type="button" id="dynamicLabClearAllBtn" class="dynamic-btn dynamic-btn-danger">Clear All Dynamic Elements</button>
+      </div>
+
+      <div id="dynamicLabGrid" class="dynamic-lab-grid">
+        <article id="dynamicFormLab" class="dynamic-lab-card">
+          <h3 id="dynamicFormLabTitle">1. Click to render a form</h3>
+          <p id="dynamicFormLabHint" class="dynamic-lab-hint">The form does not exist until you click Show Form.</p>
+          <pre id="dynamicFormLabAssert" class="dynamic-lab-assert">Assert: #dynamicPopupForm is absent until click
+Then: #dynamicFormName, #dynamicFormEmail, #dynamicFormSubmit exist</pre>
+          <div id="dynamicFormTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicFormShowBtn" class="dynamic-btn">Show Form</button>
+            <button type="button" id="dynamicFormHideBtn" class="dynamic-btn dynamic-btn-secondary">Remove Form</button>
+          </div>
+          <div id="dynamicFormMount" class="dynamic-lab-mount" data-empty-label="Form will render here"></div>
+        </article>
+
+        <article id="dynamicDropdownLab" class="dynamic-lab-card">
+          <h3 id="dynamicDropdownLabTitle">2. Click to render a dropdown</h3>
+          <p id="dynamicDropdownLabHint" class="dynamic-lab-hint">The dropdown and its options are created on click, then option nodes appear when opened.</p>
+          <pre id="dynamicDropdownLabAssert" class="dynamic-lab-assert">Assert: #dynamicCustomDropdown is absent until click
+Open: #dynamicDropdownMenu and option buttons are created</pre>
+          <div id="dynamicDropdownTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicDropdownShowBtn" class="dynamic-btn">Show Dropdown</button>
+            <button type="button" id="dynamicDropdownHideBtn" class="dynamic-btn dynamic-btn-secondary">Remove Dropdown</button>
+          </div>
+          <div id="dynamicDropdownMount" class="dynamic-lab-mount" data-empty-label="Dropdown will render here"></div>
+        </article>
+
+        <article id="dynamicSelectLab" class="dynamic-lab-card">
+          <h3 id="dynamicSelectLabTitle">3. Click to render a native select</h3>
+          <p id="dynamicSelectLabHint" class="dynamic-lab-hint">A real &lt;select&gt; with option children is inserted only after click.</p>
+          <pre id="dynamicSelectLabAssert" class="dynamic-lab-assert">Assert: #dynamicNativeSelect is absent until click</pre>
+          <div id="dynamicSelectTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicSelectShowBtn" class="dynamic-btn">Show Select</button>
+            <button type="button" id="dynamicSelectHideBtn" class="dynamic-btn dynamic-btn-secondary">Remove Select</button>
+          </div>
+          <div id="dynamicSelectMount" class="dynamic-lab-mount" data-empty-label="Select will render here"></div>
+        </article>
+
+        <article id="dynamicModalLab" class="dynamic-lab-card">
+          <h3 id="dynamicModalLabTitle">4. Click to render a modal</h3>
+          <p id="dynamicModalLabHint" class="dynamic-lab-hint">Modal markup is created on open and destroyed on close. Not pre-hidden.</p>
+          <pre id="dynamicModalLabAssert" class="dynamic-lab-assert">Assert: #dynamicModal is absent until Open Modal
+Close removes #dynamicModalBackdrop from the DOM</pre>
+          <div id="dynamicModalTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicModalOpenBtn" class="dynamic-btn">Open Modal</button>
+          </div>
+        </article>
+
+        <article id="dynamicTooltipLab" class="dynamic-lab-card">
+          <h3 id="dynamicTooltipLabTitle">5. Hover to render a tooltip</h3>
+          <p id="dynamicTooltipLabHint" class="dynamic-lab-hint">Tooltip node is created on mouseenter and removed on mouseleave.</p>
+          <pre id="dynamicTooltipLabAssert" class="dynamic-lab-assert">Assert: #dynamicTooltipBubble is absent until hover</pre>
+          <div id="dynamicTooltipTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicTooltipTrigger" class="dynamic-btn">Hover Me</button>
+          </div>
+          <div id="dynamicTooltipMount" class="dynamic-lab-mount" data-empty-label="Tooltip will render here"></div>
+        </article>
+
+        <article id="dynamicListLab" class="dynamic-lab-card">
+          <h3 id="dynamicListLabTitle">6. Click to add list items</h3>
+          <p id="dynamicListLabHint" class="dynamic-lab-hint">Each click creates a new &lt;li&gt;. The list itself is created with the first item.</p>
+          <pre id="dynamicListLabAssert" class="dynamic-lab-assert">Assert: #dynamicItemList is absent until first Add Item</pre>
+          <div id="dynamicListTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicListAddBtn" class="dynamic-btn">Add Item</button>
+          </div>
+          <div id="dynamicListMount" class="dynamic-lab-mount" data-empty-label="List will render here"></div>
+        </article>
+
+        <article id="dynamicDelayLab" class="dynamic-lab-card">
+          <h3 id="dynamicDelayLabTitle">7. Delayed render (wait test)</h3>
+          <p id="dynamicDelayLabHint" class="dynamic-lab-hint">Click starts a 1.5s wait, then the result node is inserted. Use this for waitFor / explicit wait tests.</p>
+          <pre id="dynamicDelayLabAssert" class="dynamic-lab-assert">After click: #dynamicDelaySpinner exists
+After 1.5s: #dynamicDelayedBox exists, spinner is gone</pre>
+          <div id="dynamicDelayTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicDelayBtn" class="dynamic-btn">Load After Delay</button>
+          </div>
+          <div id="dynamicDelayMount" class="dynamic-lab-mount" data-empty-label="Delayed element will render here"></div>
+        </article>
+
+        <article id="dynamicConditionLab" class="dynamic-lab-card">
+          <h3 id="dynamicConditionLabTitle">8. Conditional render</h3>
+          <p id="dynamicConditionLabHint" class="dynamic-lab-hint">Type <code>open</code> and click Reveal. Wrong text creates an error node instead.</p>
+          <pre id="dynamicConditionLabAssert" class="dynamic-lab-assert">Input "open" → #dynamicConditionBox is created
+Anything else → #dynamicConditionError is created</pre>
+          <div id="dynamicConditionTriggers" class="dynamic-lab-triggers">
+            <input type="text" id="dynamicConditionInput" class="dynamic-condition-input" placeholder='Type "open"' />
+            <button type="button" id="dynamicConditionBtn" class="dynamic-btn">Reveal</button>
+          </div>
+          <div id="dynamicConditionMount" class="dynamic-lab-mount" data-empty-label="Conditional content will render here"></div>
+        </article>
+
+        <article id="dynamicContextLab" class="dynamic-lab-card">
+          <h3 id="dynamicContextLabTitle">9. Right-click context menu</h3>
+          <p id="dynamicContextLabHint" class="dynamic-lab-hint">Right-click the yellow area. Menu nodes are created then removed on outside click.</p>
+          <pre id="dynamicContextLabAssert" class="dynamic-lab-assert">Assert: #dynamicContextMenu is absent until right-click</pre>
+          <div id="dynamicContextArea" class="dynamic-context-area">Right-click here to render a context menu</div>
+        </article>
+
+        <article id="dynamicToastLab" class="dynamic-lab-card">
+          <h3 id="dynamicToastLabTitle">10. Click to render a toast</h3>
+          <p id="dynamicToastLabHint" class="dynamic-lab-hint">Toast is created on click and auto-removed after 3 seconds, or immediately if you dismiss it.</p>
+          <pre id="dynamicToastLabAssert" class="dynamic-lab-assert">Assert: #dynamicToast is absent until click, then gone after dismiss / timeout</pre>
+          <div id="dynamicToastTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicToastBtn" class="dynamic-btn">Show Toast</button>
+          </div>
+        </article>
+
+        <article id="dynamicAccordionLab" class="dynamic-lab-card">
+          <h3 id="dynamicAccordionLabTitle">11. Accordion panel created on expand</h3>
+          <p id="dynamicAccordionLabHint" class="dynamic-lab-hint">Expand creates panel content. Collapse removes it from the DOM.</p>
+          <pre id="dynamicAccordionLabAssert" class="dynamic-lab-assert">Assert: #dynamicAccordionPanel is absent until Expand</pre>
+          <div id="dynamicAccordionTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicAccordionToggleBtn" class="dynamic-btn">Expand Panel</button>
+          </div>
+          <div id="dynamicAccordionMount" class="dynamic-lab-mount" data-empty-label="Accordion content will render here"></div>
+        </article>
+
+        <article id="dynamicNestedLab" class="dynamic-lab-card">
+          <h3 id="dynamicNestedLabTitle">12. Nested dynamic elements</h3>
+          <p id="dynamicNestedLabHint" class="dynamic-lab-hint">First click creates a button. Clicking that new button creates a nested card.</p>
+          <pre id="dynamicNestedLabAssert" class="dynamic-lab-assert">Click 1: #dynamicNestedTriggerBtn is created
+Click 2: #dynamicNestedChildCard is created</pre>
+          <div id="dynamicNestedTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicNestedShowBtn" class="dynamic-btn">Create Nested Trigger</button>
+          </div>
+          <div id="dynamicNestedMount" class="dynamic-lab-mount" data-empty-label="Nested elements will render here"></div>
+        </article>
+
+        <article id="dynamicSearchLab" class="dynamic-lab-card">
+          <h3 id="dynamicSearchLabTitle">13. Search results rendered on submit</h3>
+          <p id="dynamicSearchLabHint" class="dynamic-lab-hint">Results list is created only after Search. Empty query creates a no-results node.</p>
+          <pre id="dynamicSearchLabAssert" class="dynamic-lab-assert">Assert: #dynamicSearchResults is absent until Search</pre>
+          <div id="dynamicSearchTriggers" class="dynamic-lab-triggers">
+            <input type="search" id="dynamicSearchInput" class="dynamic-search-input" placeholder="Type a query" />
+            <button type="button" id="dynamicSearchBtn" class="dynamic-btn">Search</button>
+          </div>
+          <div id="dynamicSearchMount" class="dynamic-lab-mount" data-empty-label="Search results will render here"></div>
+        </article>
+
+        <article id="dynamicRadioLab" class="dynamic-lab-card">
+          <h3 id="dynamicRadioLabTitle">14. Radio group rendered on click</h3>
+          <p id="dynamicRadioLabHint" class="dynamic-lab-hint">Choosing a radio then creates a details box that did not exist before.</p>
+          <pre id="dynamicRadioLabAssert" class="dynamic-lab-assert">Click Show: #dynamicRadioGroup is created
+Select a radio: #dynamicRadioDetails is created</pre>
+          <div id="dynamicRadioTriggers" class="dynamic-lab-triggers">
+            <button type="button" id="dynamicRadioShowBtn" class="dynamic-btn">Show Radio Group</button>
+            <button type="button" id="dynamicRadioHideBtn" class="dynamic-btn dynamic-btn-secondary">Remove Group</button>
+          </div>
+          <div id="dynamicRadioMount" class="dynamic-lab-mount" data-empty-label="Radio group will render here"></div>
+        </article>
+      </div>
+
+      <div id="dynamicOverlayHost"></div>
+    </section>
+  </main>
+
+	<script id="errorTriggerScript" class="inline-script">
+        function triggerAllErrors() {
+            // 1. Simulate a network error
+            fetch('https://nonexistent-url.com')
+                .then(response => {
+                    // This won't happen because the URL is invalid.
+                    console.log(response);
+                })
+                .catch(error => {
+                    console.error('Network error:', error); // This triggers a network error
+                });
+
+            // 2. Simulate a console error
+            console.error('This is a manual console error!');
+
+            // 3. Simulate an uncaught exception
+            throw new Error('This is an uncaught exception!');
+
+            // 4. Simulate a Syntax Error (invalid JavaScript)
+            // Uncommenting the next line would cause a SyntaxError
+            // eval('var x = ;'); // SyntaxError: Unexpected token ;
+
+            // 5. Simulate a TypeError (incompatible operation)
+            try {
+                null.funct(); // Trying to call a method on null
+            } catch (e) {
+                console.error('TypeError:', e);
+            }
+
+            // 6. Simulate a ReferenceError (undefined variable)
+            try {
+                console.log(nonExistentVar); // Trying to log an undefined variable
+            } catch (e) {
+                console.error('ReferenceError:', e);
+            }
+
+            // 7. Simulate a RangeError (invalid array size)
+            try {
+                let arr = new Array(-1); // Array size cannot be negative
+            } catch (e) {
+                console.error('RangeError:', e);
+            }
+
+            // 8. Simulate a Custom Error
+            try {
+                throw new CustomError('This is a custom error');
+            } catch (e) {
+                console.error('Custom Error:', e);
+            }
+        }
+
+        // Custom error class
+        class CustomError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = 'CustomError';
+            }
+        }
+	</script>
+	<script id="spaHistoryScript" class="inline-script">
+        let spaCount = 1;
+
+        function historyPushUrl() {
+            const url = new URL(window.location);
+            url.searchParams.set('spa', spaCount);
+            window.history.pushState({}, '', url);
+            spaCount++;
+        }
+
+        //setTimeout(historyPushUrl, 1000);
+    </script>
+	<script id="nestedIframeScript" class="inline-script">
+        (function () {
+          // Main page always stays as nest level 0.
+          // Iframes load the separate simple page: iframe-page.html
+          document.body.classList.add('embed-level-0');
+          document.body.setAttribute('data-nest-level', '0');
+
+          const outerIframe = document.getElementById('outerIframe');
+          if (outerIframe && (!outerIframe.getAttribute('src') || outerIframe.getAttribute('src') === 'about:blank')) {
+            outerIframe.src = 'iframe-page.html?nest=1';
+          }
+        })();
+    </script>
+	<script id="shadowDomInitScript" class="inline-script">
+        (function () {
+          const shadowHost = document.getElementById('shadowDomHost');
+          if (!shadowHost || !shadowHost.attachShadow) {
+            return;
+          }
+
+          function getShadowStyles(level) {
+            const accent = level === 1 ? '#1d4ed8' : '#047857';
+            const bg = level === 1 ? '#f8fbff' : '#f4fbf8';
+
+            return `
+              :host {
+                display: block;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #111;
+              }
+              .shadow-box {
+                border: 2px solid ${accent};
+                border-radius: 10px;
+                background: ${bg};
+                padding: 18px;
+              }
+              .shadow-level-tag {
+                display: inline-block;
+                margin-bottom: 10px;
+                padding: 4px 10px;
+                border-radius: 999px;
+                background: ${accent};
+                color: #fff;
+                font-size: 0.8rem;
+                font-weight: 700;
+              }
+              .shadow-title {
+                margin: 0 0 6px;
+                font-size: 1.15rem;
+              }
+              .shadow-hint {
+                margin: 0 0 12px;
+                color: #475569;
+                font-size: 0.9rem;
+              }
+              .shadow-buttons {
+                margin-bottom: 12px;
+              }
+              .shadow-btn {
+                padding: 7px 12px;
+                border: none;
+                border-radius: 6px;
+                background: ${accent};
+                color: #fff;
+                cursor: pointer;
+                margin-right: 8px;
+                margin-bottom: 6px;
+              }
+              .shadow-btn-secondary {
+                background: #64748b;
+              }
+              .shadow-status {
+                margin: 0 0 12px;
+                min-height: 1.2em;
+                color: #0f172a;
+                font-size: 0.92rem;
+              }
+              .shadow-form {
+                margin: 0;
+                padding: 12px;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                background: #fff;
+              }
+              .shadow-form-row {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
+              }
+              .shadow-form-row label {
+                min-width: 70px;
+                font-weight: 600;
+              }
+              .shadow-form-row input {
+                flex: 1;
+                padding: 6px 8px;
+                border: 1px solid #94a3b8;
+                border-radius: 4px;
+              }
+              .shadow-nest {
+                margin-top: 16px;
+                padding-top: 14px;
+                border-top: 1px dashed ${accent};
+              }
+              .shadow-nest-label {
+                margin: 0 0 10px;
+                font-size: 0.9rem;
+                color: #334155;
+                font-weight: 600;
+              }
+              .shadow-nested-host {
+                display: block;
+              }
+            `;
+          }
+
+          function buildShadowContent(prefix, level) {
+            return `
+              <div id="${prefix}Buttons" class="shadow-buttons">
+                <button type="button" id="${prefix}BtnOne" class="shadow-btn">Click Me</button>
+                <button type="button" id="${prefix}BtnTwo" class="shadow-btn">Say Hello</button>
+                <button type="button" id="${prefix}BtnClear" class="shadow-btn shadow-btn-secondary">Clear</button>
+              </div>
+              <p id="${prefix}Status" class="shadow-status"></p>
+              <form id="${prefix}Form" class="shadow-form" action="#">
+                <div id="${prefix}NameRow" class="shadow-form-row">
+                  <label id="${prefix}NameLabel" for="${prefix}Name">Name</label>
+                  <input type="text" id="${prefix}Name" class="shadow-input" name="name" placeholder="Name" />
+                </div>
+                <div id="${prefix}EmailRow" class="shadow-form-row">
+                  <label id="${prefix}EmailLabel" for="${prefix}Email">Email</label>
+                  <input type="email" id="${prefix}Email" class="shadow-input" name="email" placeholder="email@example.com" />
+                </div>
+                <div id="${prefix}Actions" class="shadow-form-row">
+                  <button type="submit" id="${prefix}Submit" class="shadow-btn">Submit</button>
+                  <button type="reset" id="${prefix}Reset" class="shadow-btn shadow-btn-secondary">Reset</button>
+                </div>
+              </form>
+            `;
+          }
+
+          function wireShadowInteractions(shadowRoot, prefix, level) {
+            const status = shadowRoot.getElementById(prefix + 'Status');
+            const btnOne = shadowRoot.getElementById(prefix + 'BtnOne');
+            const btnTwo = shadowRoot.getElementById(prefix + 'BtnTwo');
+            const btnClear = shadowRoot.getElementById(prefix + 'BtnClear');
+            const form = shadowRoot.getElementById(prefix + 'Form');
+
+            function setStatus(message) {
+              if (status) status.textContent = message;
+            }
+
+            if (btnOne) {
+              btnOne.addEventListener('click', function () {
+                setStatus('Click Me pressed (Shadow Level ' + level + ')');
+              });
+            }
+
+            if (btnTwo) {
+              btnTwo.addEventListener('click', function () {
+                setStatus('Hello from Shadow Level ' + level);
+              });
+            }
+
+            if (btnClear) {
+              btnClear.addEventListener('click', function () {
+                setStatus('');
+              });
+            }
+
+            if (form) {
+              form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const name = shadowRoot.getElementById(prefix + 'Name');
+                const email = shadowRoot.getElementById(prefix + 'Email');
+                setStatus(
+                  'Form submitted (Shadow Level ' + level + '): ' +
+                  (name ? name.value : '') +
+                  ' / ' +
+                  (email ? email.value : '')
+                );
+              });
+            }
+          }
+
+          function mountShadowLevel(hostElement, level) {
+            const prefix = level === 1 ? 'shadowL1' : 'shadowL2';
+            const shadowRoot = hostElement.attachShadow({ mode: 'open' });
+
+            shadowRoot.innerHTML = `
+              <style>${getShadowStyles(level)}</style>
+              <div id="${prefix}Root" class="shadow-box" data-shadow-level="${level}">
+                <span id="${prefix}Tag" class="shadow-level-tag">Shadow DOM — Level ${level}</span>
+                <h3 id="${prefix}Title" class="shadow-title">
+                  ${level === 1 ? 'Outer Shadow Root' : 'Inner Shadow Root'}
+                </h3>
+                <p id="${prefix}Hint" class="shadow-hint">
+                  ${level === 1
+                    ? 'Buttons + small form. Level 2 is nested below.'
+                    : 'Buttons + small form. Deepest shadow level.'}
+                </p>
+                ${buildShadowContent(prefix, level)}
+                ${level === 1 ? `
+                  <div id="${prefix}Nest" class="shadow-nest">
+                    <p id="${prefix}NestLabel" class="shadow-nest-label">↓ Nested inside Level 1:</p>
+                    <div id="${prefix}NestedHost" class="shadow-nested-host" data-shadow-level="2"></div>
+                  </div>
+                ` : ''}
+              </div>
+            `;
+
+            wireShadowInteractions(shadowRoot, prefix, level);
+
+            if (level === 1) {
+              const nestedHost = shadowRoot.getElementById('shadowL1NestedHost');
+              if (nestedHost) {
+                mountShadowLevel(nestedHost, 2);
+              }
+            }
+
+            return shadowRoot;
+          }
+
+          mountShadowLevel(shadowHost, 1);
+        })();
+    </script>
+	<script id="dynamicElementsScript" class="inline-script">
+        (function () {
+          const statusEl = document.getElementById('dynamicLabStatus');
+          const overlayHost = document.getElementById('dynamicOverlayHost');
+          const mounts = {
+            form: document.getElementById('dynamicFormMount'),
+            dropdown: document.getElementById('dynamicDropdownMount'),
+            select: document.getElementById('dynamicSelectMount'),
+            tooltip: document.getElementById('dynamicTooltipMount'),
+            list: document.getElementById('dynamicListMount'),
+            delay: document.getElementById('dynamicDelayMount'),
+            condition: document.getElementById('dynamicConditionMount'),
+            accordion: document.getElementById('dynamicAccordionMount'),
+            nested: document.getElementById('dynamicNestedMount'),
+            search: document.getElementById('dynamicSearchMount'),
+            radio: document.getElementById('dynamicRadioMount')
+          };
+
+          let listItemCount = 0;
+          let delayTimer = null;
+          let toastTimer = null;
+          const dropdownOptions = ['Alpha', 'Beta', 'Gamma', 'Delta'];
+
+          function setStatus(message) {
+            if (statusEl) {
+              statusEl.textContent = message;
+            }
+          }
+
+          function clearNode(node) {
+            if (!node) return;
+            while (node.firstChild) {
+              node.removeChild(node.firstChild);
+            }
+          }
+
+          function el(tag, attrs, text) {
+            const node = document.createElement(tag);
+            if (attrs) {
+              Object.keys(attrs).forEach(function (key) {
+                if (key === 'className') {
+                  node.className = attrs[key];
+                } else if (key === 'htmlFor') {
+                  node.htmlFor = attrs[key];
+                } else {
+                  node.setAttribute(key, attrs[key]);
+                }
+              });
+            }
+            if (text != null) {
+              node.textContent = text;
+            }
+            return node;
+          }
+
+          function countDynamicNodes() {
+            const ids = [
+              'dynamicPopupForm',
+              'dynamicFormSuccess',
+              'dynamicCustomDropdown',
+              'dynamicDropdownMenu',
+              'dynamicNativeSelect',
+              'dynamicModalBackdrop',
+              'dynamicTooltipBubble',
+              'dynamicItemList',
+              'dynamicDelaySpinner',
+              'dynamicDelayedBox',
+              'dynamicConditionBox',
+              'dynamicConditionError',
+              'dynamicContextMenu',
+              'dynamicToast',
+              'dynamicAccordionPanel',
+              'dynamicNestedTriggerBtn',
+              'dynamicNestedChildCard',
+              'dynamicSearchResults',
+              'dynamicSearchEmpty',
+              'dynamicRadioGroup',
+              'dynamicRadioDetails'
+            ];
+            return ids.filter(function (id) {
+              return document.getElementById(id);
+            }).length;
+          }
+
+          function refreshStatus(action) {
+            const present = countDynamicNodes();
+            setStatus(
+              (action ? action + ' — ' : '') +
+              (present ? present + ' dynamic widget(s) currently in the DOM.' : 'No dynamic elements in the DOM yet.')
+            );
+          }
+
+          function removeById(id) {
+            const node = document.getElementById(id);
+            if (node) {
+              node.remove();
+              return true;
+            }
+            return false;
+          }
+
+          // 1. Form
+          document.getElementById('dynamicFormShowBtn').addEventListener('click', function () {
+            if (document.getElementById('dynamicPopupForm')) {
+              refreshStatus('Form already in the DOM');
+              return;
+            }
+            clearNode(mounts.form);
+
+            const form = el('form', { id: 'dynamicPopupForm', class: 'dynamic-popup-form', action: '#' });
+
+            const nameRow = el('div', { id: 'dynamicFormNameRow', class: 'form-row' });
+            nameRow.appendChild(el('label', { id: 'dynamicFormNameLabel', htmlFor: 'dynamicFormName' }, 'Name'));
+            nameRow.appendChild(el('input', {
+              id: 'dynamicFormName',
+              class: 'form-input',
+              type: 'text',
+              name: 'name',
+              placeholder: 'Your name'
+            }));
+
+            const emailRow = el('div', { id: 'dynamicFormEmailRow', class: 'form-row' });
+            emailRow.appendChild(el('label', { id: 'dynamicFormEmailLabel', htmlFor: 'dynamicFormEmail' }, 'Email'));
+            emailRow.appendChild(el('input', {
+              id: 'dynamicFormEmail',
+              class: 'form-input',
+              type: 'email',
+              name: 'email',
+              placeholder: 'you@example.com'
+            }));
+
+            const actions = el('div', { id: 'dynamicFormActions', class: 'form-row' });
+            const submitBtn = el('button', {
+              id: 'dynamicFormSubmit',
+              class: 'dynamic-btn',
+              type: 'submit'
+            }, 'Submit Form');
+            const cancelBtn = el('button', {
+              id: 'dynamicFormCancel',
+              class: 'dynamic-btn dynamic-btn-secondary',
+              type: 'button'
+            }, 'Cancel');
+            actions.appendChild(submitBtn);
+            actions.appendChild(cancelBtn);
+
+            form.appendChild(nameRow);
+            form.appendChild(emailRow);
+            form.appendChild(actions);
+
+            form.addEventListener('submit', function (event) {
+              event.preventDefault();
+              removeById('dynamicFormSuccess');
+              const name = document.getElementById('dynamicFormName');
+              const email = document.getElementById('dynamicFormEmail');
+              const banner = el('p', { id: 'dynamicFormSuccess', class: 'dynamic-success-banner' },
+                'Submitted: ' + (name ? name.value : '') + ' / ' + (email ? email.value : '')
+              );
+              mounts.form.appendChild(banner);
+              refreshStatus('Form submitted; success banner created');
+            });
+
+            cancelBtn.addEventListener('click', function () {
+              clearNode(mounts.form);
+              refreshStatus('Form removed from the DOM');
+            });
+
+            mounts.form.appendChild(form);
+            refreshStatus('Form created in the DOM');
+          });
+
+          document.getElementById('dynamicFormHideBtn').addEventListener('click', function () {
+            clearNode(mounts.form);
+            refreshStatus('Form removed from the DOM');
+          });
+
+          // 2. Custom dropdown
+          function renderDropdownOptions(dropdown) {
+            removeById('dynamicDropdownMenu');
+            const menu = el('ul', { id: 'dynamicDropdownMenu', class: 'dynamic-dropdown-menu', role: 'listbox' });
+            dropdownOptions.forEach(function (label, index) {
+              const item = el('li', { id: 'dynamicDropdownItem' + (index + 1), class: 'dynamic-dropdown-item' });
+              const optionBtn = el('button', {
+                id: 'dynamicDropdownOption' + (index + 1),
+                class: 'dynamic-dropdown-option',
+                type: 'button',
+                'data-value': label.toLowerCase()
+              }, label);
+              optionBtn.addEventListener('click', function () {
+                const toggle = document.getElementById('dynamicDropdownToggle');
+                if (toggle) {
+                  toggle.textContent = label;
+                  toggle.setAttribute('data-selected', label.toLowerCase());
+                }
+                removeById('dynamicDropdownChosen');
+                dropdown.appendChild(el('p', {
+                  id: 'dynamicDropdownChosen',
+                  class: 'dynamic-success-banner'
+                }, 'Selected: ' + label));
+                menu.remove();
+                refreshStatus('Dropdown option selected; menu removed from the DOM');
+              });
+              item.appendChild(optionBtn);
+              menu.appendChild(item);
+            });
+            dropdown.appendChild(menu);
+            refreshStatus('Dropdown option list created in the DOM');
+          }
+
+          document.getElementById('dynamicDropdownShowBtn').addEventListener('click', function () {
+            if (document.getElementById('dynamicCustomDropdown')) {
+              refreshStatus('Dropdown already in the DOM');
+              return;
+            }
+            clearNode(mounts.dropdown);
+
+            const dropdown = el('div', { id: 'dynamicCustomDropdown', class: 'dynamic-dropdown' });
+            const toggle = el('button', {
+              id: 'dynamicDropdownToggle',
+              class: 'dynamic-btn dynamic-btn-created',
+              type: 'button',
+              'aria-haspopup': 'listbox'
+            }, 'Choose an option');
+
+            toggle.addEventListener('click', function () {
+              if (document.getElementById('dynamicDropdownMenu')) {
+                document.getElementById('dynamicDropdownMenu').remove();
+                refreshStatus('Dropdown menu removed from the DOM');
+              } else {
+                renderDropdownOptions(dropdown);
+              }
+            });
+
+            dropdown.appendChild(toggle);
+            mounts.dropdown.appendChild(dropdown);
+            refreshStatus('Dropdown created in the DOM');
+          });
+
+          document.getElementById('dynamicDropdownHideBtn').addEventListener('click', function () {
+            clearNode(mounts.dropdown);
+            refreshStatus('Dropdown removed from the DOM');
+          });
+
+          // 3. Native select
+          document.getElementById('dynamicSelectShowBtn').addEventListener('click', function () {
+            if (document.getElementById('dynamicNativeSelect')) {
+              refreshStatus('Select already in the DOM');
+              return;
+            }
+            clearNode(mounts.select);
+
+            const wrap = el('div', { id: 'dynamicSelectWrap', class: 'dynamic-select-wrap' });
+            const label = el('label', { id: 'dynamicSelectLabel', htmlFor: 'dynamicNativeSelect' }, 'Choose a city');
+            const select = el('select', { id: 'dynamicNativeSelect', class: 'dynamic-native-select', name: 'city' });
+            ['', 'Delhi', 'Mumbai', 'Bengaluru', 'Pune'].forEach(function (city, index) {
+              const option = el('option', {
+                id: 'dynamicSelectOption' + index,
+                class: 'select-option',
+                value: city.toLowerCase()
+              }, city || 'Select city');
+              select.appendChild(option);
+            });
+            select.addEventListener('change', function () {
+              removeById('dynamicSelectValue');
+              wrap.appendChild(el('p', {
+                id: 'dynamicSelectValue',
+                class: 'dynamic-success-banner'
+              }, 'Select value: ' + select.value));
+              refreshStatus('Select change created a value node');
+            });
+            wrap.appendChild(label);
+            wrap.appendChild(select);
+            mounts.select.appendChild(wrap);
+            refreshStatus('Native select created in the DOM');
+          });
+
+          document.getElementById('dynamicSelectHideBtn').addEventListener('click', function () {
+            clearNode(mounts.select);
+            refreshStatus('Select removed from the DOM');
+          });
+
+          // 4. Modal
+          function closeModal() {
+            clearNode(overlayHost);
+            refreshStatus('Modal removed from the DOM');
+          }
+
+          document.getElementById('dynamicModalOpenBtn').addEventListener('click', function () {
+            if (document.getElementById('dynamicModal')) {
+              refreshStatus('Modal already in the DOM');
+              return;
+            }
+            const backdrop = el('div', { id: 'dynamicModalBackdrop', class: 'dynamic-modal-backdrop' });
+            const modal = el('div', { id: 'dynamicModal', class: 'dynamic-modal', role: 'dialog', 'aria-modal': 'true' });
+            modal.appendChild(el('h3', { id: 'dynamicModalTitle' }, 'Dynamic Modal'));
+            modal.appendChild(el('p', { id: 'dynamicModalText' }, 'This dialog was created after you clicked Open Modal. It was not in the page before.'));
+            const closeBtn = el('button', { id: 'dynamicModalCloseBtn', class: 'dynamic-btn dynamic-btn-secondary', type: 'button' }, 'Close Modal');
+            closeBtn.addEventListener('click', closeModal);
+            modal.appendChild(closeBtn);
+            backdrop.appendChild(modal);
+            backdrop.addEventListener('click', function (event) {
+              if (event.target === backdrop) {
+                closeModal();
+              }
+            });
+            overlayHost.appendChild(backdrop);
+            refreshStatus('Modal created in the DOM');
+          });
+
+          // 5. Tooltip
+          const tooltipTrigger = document.getElementById('dynamicTooltipTrigger');
+          tooltipTrigger.addEventListener('mouseenter', function () {
+            if (document.getElementById('dynamicTooltipBubble')) return;
+            mounts.tooltip.appendChild(el('span', {
+              id: 'dynamicTooltipBubble',
+              class: 'dynamic-tooltip-bubble',
+              role: 'tooltip'
+            }, 'I was created on hover'));
+            refreshStatus('Tooltip created in the DOM');
+          });
+          tooltipTrigger.addEventListener('mouseleave', function () {
+            removeById('dynamicTooltipBubble');
+            refreshStatus('Tooltip removed from the DOM');
+          });
+          tooltipTrigger.addEventListener('focus', function () {
+            if (document.getElementById('dynamicTooltipBubble')) return;
+            mounts.tooltip.appendChild(el('span', {
+              id: 'dynamicTooltipBubble',
+              class: 'dynamic-tooltip-bubble',
+              role: 'tooltip'
+            }, 'I was created on focus'));
+            refreshStatus('Tooltip created in the DOM');
+          });
+          tooltipTrigger.addEventListener('blur', function () {
+            removeById('dynamicTooltipBubble');
+            refreshStatus('Tooltip removed from the DOM');
+          });
+
+          // 6. List items
+          document.getElementById('dynamicListAddBtn').addEventListener('click', function () {
+            let list = document.getElementById('dynamicItemList');
+            if (!list) {
+              list = el('ul', { id: 'dynamicItemList', class: 'dynamic-list' });
+              mounts.list.appendChild(list);
+            }
+            listItemCount += 1;
+            const item = el('li', {
+              id: 'dynamicListItem' + listItemCount,
+              class: 'dynamic-list-item'
+            });
+            item.appendChild(el('span', {
+              id: 'dynamicListItemText' + listItemCount
+            }, 'Dynamic item #' + listItemCount));
+            const removeBtn = el('button', {
+              id: 'dynamicListItemRemove' + listItemCount,
+              class: 'dynamic-btn dynamic-btn-danger',
+              type: 'button'
+            }, 'Remove');
+            removeBtn.addEventListener('click', function () {
+              item.remove();
+              if (list && !list.children.length) {
+                list.remove();
+              }
+              refreshStatus('List item removed from the DOM');
+            });
+            item.appendChild(removeBtn);
+            list.appendChild(item);
+            refreshStatus('List item #' + listItemCount + ' created in the DOM');
+          });
+
+          // 7. Delayed render
+          document.getElementById('dynamicDelayBtn').addEventListener('click', function () {
+            if (delayTimer) {
+              clearTimeout(delayTimer);
+              delayTimer = null;
+            }
+            clearNode(mounts.delay);
+            mounts.delay.appendChild(el('p', {
+              id: 'dynamicDelaySpinner',
+              class: 'dynamic-lab-hint'
+            }, 'Loading… wait 1.5 seconds'));
+            refreshStatus('Spinner created; delayed box not in DOM yet');
+
+            delayTimer = setTimeout(function () {
+              removeById('dynamicDelaySpinner');
+              const box = el('div', { id: 'dynamicDelayedBox', class: 'dynamic-delayed-box' });
+              box.appendChild(el('p', { id: 'dynamicDelayedText' }, 'This node appeared after 1.5 seconds.'));
+              const lateBtn = el('button', {
+                id: 'dynamicDelayedActionBtn',
+                class: 'dynamic-btn dynamic-btn-created',
+                type: 'button'
+              }, 'Delayed Action');
+              lateBtn.addEventListener('click', function () {
+                refreshStatus('Delayed action button clicked');
+              });
+              box.appendChild(lateBtn);
+              mounts.delay.appendChild(box);
+              refreshStatus('Delayed box created in the DOM');
+              delayTimer = null;
+            }, 1500);
+          });
+
+          // 8. Conditional render
+          document.getElementById('dynamicConditionBtn').addEventListener('click', function () {
+            clearNode(mounts.condition);
+            const value = (document.getElementById('dynamicConditionInput').value || '').trim().toLowerCase();
+            if (value === 'open') {
+              const box = el('div', { id: 'dynamicConditionBox', class: 'dynamic-condition-box' });
+              box.appendChild(el('p', { id: 'dynamicConditionText' }, 'Secret panel unlocked. This node was created because the input matched.'));
+              box.appendChild(el('button', {
+                id: 'dynamicConditionActionBtn',
+                class: 'dynamic-btn',
+                type: 'button'
+              }, 'Secret Action'));
+              mounts.condition.appendChild(box);
+              refreshStatus('Condition matched; panel created');
+            } else {
+              mounts.condition.appendChild(el('p', {
+                id: 'dynamicConditionError',
+                class: 'dynamic-lab-hint'
+              }, 'Type exactly "open" to create the secret panel.'));
+              refreshStatus('Condition failed; error node created');
+            }
+          });
+
+          // 9. Context menu
+          const contextArea = document.getElementById('dynamicContextArea');
+          function closeContextMenu() {
+            if (removeById('dynamicContextMenu')) {
+              refreshStatus('Context menu removed from the DOM');
+            }
+          }
+          contextArea.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+            closeContextMenu();
+            const menu = el('div', { id: 'dynamicContextMenu', class: 'dynamic-context-menu', role: 'menu' });
+            ['Copy', 'Inspect', 'Delete'].forEach(function (label, index) {
+              const itemBtn = el('button', {
+                id: 'dynamicContextItem' + (index + 1),
+                class: 'dynamic-dropdown-option',
+                type: 'button',
+                role: 'menuitem'
+              }, label);
+              itemBtn.addEventListener('click', function () {
+                closeContextMenu();
+                refreshStatus('Context action "' + label + '" chosen');
+              });
+              menu.appendChild(itemBtn);
+            });
+            menu.style.top = event.pageY + 'px';
+            menu.style.left = event.pageX + 'px';
+            document.body.appendChild(menu);
+            refreshStatus('Context menu created in the DOM');
+          });
+          document.addEventListener('click', function (event) {
+            const menu = document.getElementById('dynamicContextMenu');
+            if (menu && !menu.contains(event.target)) {
+              closeContextMenu();
+            }
+          });
+
+          // 10. Toast
+          document.getElementById('dynamicToastBtn').addEventListener('click', function () {
+            if (toastTimer) {
+              clearTimeout(toastTimer);
+              toastTimer = null;
+            }
+            removeById('dynamicToast');
+            const toast = el('div', { id: 'dynamicToast', class: 'dynamic-toast', role: 'status' });
+            toast.appendChild(el('span', { id: 'dynamicToastText' }, 'Toast created in the DOM'));
+            const dismiss = el('button', {
+              id: 'dynamicToastDismissBtn',
+              class: 'dynamic-btn dynamic-btn-secondary',
+              type: 'button'
+            }, 'Dismiss');
+            dismiss.style.marginLeft = '10px';
+            function dismissToast() {
+              if (toastTimer) {
+                clearTimeout(toastTimer);
+                toastTimer = null;
+              }
+              removeById('dynamicToast');
+              refreshStatus('Toast removed from the DOM');
+            }
+            dismiss.addEventListener('click', dismissToast);
+            toast.appendChild(dismiss);
+            document.body.appendChild(toast);
+            refreshStatus('Toast created in the DOM');
+            toastTimer = setTimeout(dismissToast, 3000);
+          });
+
+          // 11. Accordion
+          const accordionBtn = document.getElementById('dynamicAccordionToggleBtn');
+          accordionBtn.addEventListener('click', function () {
+            if (document.getElementById('dynamicAccordionPanel')) {
+              clearNode(mounts.accordion);
+              accordionBtn.textContent = 'Expand Panel';
+              refreshStatus('Accordion panel removed from the DOM');
+              return;
+            }
+            const panel = el('div', { id: 'dynamicAccordionPanel', class: 'dynamic-accordion-panel' });
+            panel.appendChild(el('p', { id: 'dynamicAccordionText' }, 'Accordion body was created on expand, not un-hidden.'));
+            const innerBtn = el('button', {
+              id: 'dynamicAccordionInnerBtn',
+              class: 'dynamic-btn dynamic-btn-created',
+              type: 'button'
+            }, 'Inner Accordion Button');
+            innerBtn.addEventListener('click', function () {
+              refreshStatus('Inner accordion button clicked');
+            });
+            panel.appendChild(innerBtn);
+            mounts.accordion.appendChild(panel);
+            accordionBtn.textContent = 'Collapse Panel';
+            refreshStatus('Accordion panel created in the DOM');
+          });
+
+          // 12. Nested dynamic
+          document.getElementById('dynamicNestedShowBtn').addEventListener('click', function () {
+            if (document.getElementById('dynamicNestedTriggerBtn')) {
+              refreshStatus('Nested trigger already in the DOM');
+              return;
+            }
+            clearNode(mounts.nested);
+            const trigger = el('button', {
+              id: 'dynamicNestedTriggerBtn',
+              class: 'dynamic-btn dynamic-btn-created',
+              type: 'button'
+            }, 'Click to create nested card');
+            trigger.addEventListener('click', function () {
+              if (document.getElementById('dynamicNestedChildCard')) {
+                refreshStatus('Nested card already in the DOM');
+                return;
+              }
+              const card = el('div', { id: 'dynamicNestedChildCard', class: 'dynamic-nested-card' });
+              card.appendChild(el('p', { id: 'dynamicNestedChildText' }, 'Nested card created by the dynamic button.'));
+              const childBtn = el('button', {
+                id: 'dynamicNestedChildBtn',
+                class: 'dynamic-btn',
+                type: 'button'
+              }, 'Nested Card Button');
+              childBtn.addEventListener('click', function () {
+                refreshStatus('Nested card button clicked');
+              });
+              card.appendChild(childBtn);
+              mounts.nested.appendChild(card);
+              refreshStatus('Nested card created in the DOM');
+            });
+            mounts.nested.appendChild(trigger);
+            refreshStatus('Nested trigger button created in the DOM');
+          });
+
+          // 13. Search results
+          document.getElementById('dynamicSearchBtn').addEventListener('click', function () {
+            clearNode(mounts.search);
+            const query = (document.getElementById('dynamicSearchInput').value || '').trim();
+            if (!query) {
+              mounts.search.appendChild(el('p', {
+                id: 'dynamicSearchEmpty',
+                class: 'dynamic-lab-hint'
+              }, 'No results. Enter a query first.'));
+              refreshStatus('Empty-state node created');
+              return;
+            }
+            const results = el('div', { id: 'dynamicSearchResults', class: 'dynamic-search-results' });
+            results.appendChild(el('p', { id: 'dynamicSearchSummary' }, 'Results for "' + query + '"'));
+            [1, 2, 3].forEach(function (n) {
+              const row = el('div', {
+                id: 'dynamicSearchResult' + n,
+                class: 'dynamic-search-result'
+              }, 'Result ' + n + ' matching ' + query);
+              results.appendChild(row);
+            });
+            mounts.search.appendChild(results);
+            refreshStatus('Search result nodes created in the DOM');
+          });
+
+          // 14. Radio group
+          document.getElementById('dynamicRadioShowBtn').addEventListener('click', function () {
+            if (document.getElementById('dynamicRadioGroup')) {
+              refreshStatus('Radio group already in the DOM');
+              return;
+            }
+            clearNode(mounts.radio);
+            const group = el('div', { id: 'dynamicRadioGroup', class: 'dynamic-radio-group' });
+            ['Plan A', 'Plan B', 'Plan C'].forEach(function (label, index) {
+              const row = el('div', { id: 'dynamicRadioRow' + (index + 1), class: 'dynamic-radio-row' });
+              const radioId = 'dynamicRadioOption' + (index + 1);
+              const radio = el('input', {
+                id: radioId,
+                class: 'form-radio',
+                type: 'radio',
+                name: 'dynamicPlan',
+                value: label.toLowerCase().replace(' ', '-')
+              });
+              radio.addEventListener('change', function () {
+                removeById('dynamicRadioDetails');
+                const details = el('div', { id: 'dynamicRadioDetails', class: 'dynamic-success-banner' });
+                details.appendChild(el('p', { id: 'dynamicRadioDetailsText' }, 'You selected ' + label + '. This details box was created after the change.'));
+                mounts.radio.appendChild(details);
+                refreshStatus('Radio details created in the DOM');
+              });
+              row.appendChild(radio);
+              row.appendChild(el('label', { id: radioId + 'Label', htmlFor: radioId }, label));
+              group.appendChild(row);
+            });
+            mounts.radio.appendChild(group);
+            refreshStatus('Radio group created in the DOM');
+          });
+
+          document.getElementById('dynamicRadioHideBtn').addEventListener('click', function () {
+            clearNode(mounts.radio);
+            refreshStatus('Radio group removed from the DOM');
+          });
+
+          // Clear all
+          document.getElementById('dynamicLabClearAllBtn').addEventListener('click', function () {
+            if (delayTimer) {
+              clearTimeout(delayTimer);
+              delayTimer = null;
+            }
+            if (toastTimer) {
+              clearTimeout(toastTimer);
+              toastTimer = null;
+            }
+            Object.keys(mounts).forEach(function (key) {
+              clearNode(mounts[key]);
+            });
+            clearNode(overlayHost);
+            removeById('dynamicContextMenu');
+            removeById('dynamicToast');
+            listItemCount = 0;
+            accordionBtn.textContent = 'Expand Panel';
+            setStatus('All dynamic elements cleared. Nothing extra remains in the DOM.');
+          });
+        })();
+    </script>
+
+  </body>
+
+</html>
